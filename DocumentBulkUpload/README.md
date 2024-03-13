@@ -26,42 +26,6 @@ After uploading all files, we can easily track the status of each file/document.
 
 Prerequisites:
 
-Install & Access
-
-Command
-
-Path
-
-VS Code
-
- 
-
-Link
-
-NPM & Node
-
-npm i node@14.19.0 
-
-npm & node
-
-NPM Registry setup
-
- 
-
-Link
-
-GitHub Repository
-
- 
-
-ClientApplicationConfig
-
-Twinit Extension
-
- 
-
-Latest version
-
 Prepare an Excel spreadsheet with the following specifications:
 
 The spreadsheet must contain a sheet named "Attribute_List."
@@ -72,19 +36,7 @@ Define additional columns for the attributes you wish to associate with each fil
 
 The script uses the information in this spreadsheet to map attributes to the corresponding files during the upload process.
 
-Attached Sample files for reference
-
-
-
 How to execute script:
-
-Details 
-
-Instructions 
-
-Screenshot & Files
-
-Run Script in Twinit Extension 
 
 Open VS code and Run Bulk upload script
 
@@ -94,17 +46,9 @@ Select your project
 
 Open script folder and select validation Script
 
-
-
-Select validation Script and Run Script
-
 Right click on Validation script
 
 Right Click on Validation Script and click on Run Script
-
-
-
-Select Script to Run
 
 Click on Run script 
 
@@ -112,27 +56,17 @@ When you click on Run Script, script selection menu will open to select the scri
 
 Select bulk upload files script to run 
 
-
-
-Select Excel spreadsheet 
-
 Select Excel spreadsheet which have “Attribute_List” sheet 
 
 When we click on  bulk upload files option First popup will open to select the Excel spreadsheet which have “Attribute_List” sheet 
 
-
-
-Select multiple files to upload 
+Select multiple files to upload
 
 Second popup will open to select the Files/Documents which we want to upload 
 
 We can select multiples Files/Documents 
 
 We can select any type of File/Document
-
-
-
-Upload status file 
 
 Download File/Document upload status file 
 
