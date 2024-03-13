@@ -2,6 +2,8 @@ let runnableScripts = [
     { name: "Bulk Upload Files", script: "bulkUploadFileWithAttributes" }
 ]
 
+import fs from "fs"
+
 let Validation = {
     getRunnableScripts() {
         return runnableScripts
