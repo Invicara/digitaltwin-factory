@@ -1,3 +1,5 @@
+import * as fs from 'fs'
+
 let runnableScripts = [
     { name: "Bulk Upload Files", script: "bulkUploadFileWithAttributes" }
 ]
