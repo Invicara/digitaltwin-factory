@@ -2,7 +2,7 @@
 
 # digitaltwin-factory
 
-create-twinit-app is made available as a part of the digitaltwin-factory open source community. Join the digitaltwin-factory community to gain access to a wealth of information and training material on how to use Twinit to accomplish your dgital twin goals. Membership in digitaltwin-factory open-source community includes access to self-led development courses for building applications using Twinit, access to the developer documentation for Twinit concepts, services, and APIs, access to open-source code modules and UI libraries to help accelerate and kick-start your projects, as well as access to a community of developers who develop using Twinit. For more information visit [https://invicara.com/](https://invicara.com/) and [https://twinit.com/](https://twinit.com/.)
+[digitaltwin-factory](https://community.digitaltwin-factory.com/) is an open-source community powering development of digital twins on Twinit. Join the digitaltwin-factory community to gain access to a wealth of information and training material on how to use Twinit to accomplish your dgital twin goals. Membership in digitaltwin-factory open-source community includes access to self-led development courses for building applications using Twinit, access to the developer documentation for Twinit concepts, services, and APIs, access to open-source code modules and UI libraries to help accelerate and kick-start your projects, as well as access to a community of developers who develop using Twinit. For more information visit [https://invicara.com/](https://invicara.com/) and [https://twinit.com/](https://twinit.com/.)
 
 digitaltwin-factory sign up link coming soon!
 
