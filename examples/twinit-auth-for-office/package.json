@@ -28,8 +28,8 @@
     "watch": "webpack --mode development --watch"
   },
   "dependencies": {
-    "@dtplatform/iaf-script-engine": "^4.4.7",
-    "@dtplatform/platform-api": "^4.4.6",
+    "@dtplatform/iaf-script-engine": "~4.3.0",
+    "@dtplatform/platform-api": "~4.3.0",
     "@fluentui/react-components": "^9.47.2",
     "@fluentui/react-icons": "^2.0.233",
     "core-js": "^3.36.0",
