@@ -15,7 +15,7 @@
 
       // else we redirect the user to signin on Twinit using the twinit url and application id passed to the signin.hml page
       let urlSearchParams = new URLSearchParams(window.location.search)
-      window.location = `${urlSearchParams.get('env')}/passportsvc/api/v1/oauth/authorize/?client_id=${urlSearchParams.get('client_id')}&response_type=token&scope=read write&redirect_uri=https://localhost:3000/signin.html`
+      window.location = `${urlSearchParams.get('env')}/passportsvc/api/v1/oauth/authorize/?client_id=${urlSearchParams.get('client_id')}&response_type=token&scope=read write&redirect_uri=https://${window.location.host}/signin.html`
    }
  
- })();
+ })()

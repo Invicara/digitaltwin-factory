@@ -5,8 +5,8 @@ const CopyWebpackPlugin = require("copy-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const webpack = require("webpack");
 
-const urlDev = "https://localhost:3000/";
-const urlProd = "https://exceladdin.invicara.io/"; // CHANGE THIS TO YOUR PRODUCTION DEPLOYMENT LOCATION
+const urlDev = "https://localhost:3000";
+const urlProd = "https://localhost:3000"; // CHANGE THIS TO YOUR PRODUCTION DEPLOYMENT LOCATION
 
 async function getHttpsOptions() {
   const httpsOptions = await devCerts.getHttpsServerOptions();
@@ -22,6 +22,7 @@ module.exports = async (env, options) => {
       vendor: ["react", "react-dom", "core-js", "@fluentui/react-components", "@fluentui/react-icons"],
       taskpane: ["./src/taskpane/index.jsx", "./src/taskpane/taskpane.html"],
       commands: "./src/commands/commands.js",
+      signin: "./src/dialogs/signin.js"
     },
     output: {
       clean: true,
@@ -107,6 +108,14 @@ module.exports = async (env, options) => {
     ],
     devServer: {
       hot: true,
+      client: {
+        overlay: {
+          runtimeErrors: error => {
+            const ignorErrors = ["ResizeObserver loop completed with undelivered notifications."]
+            return !ignorErrors.includes(error.message)
+          }
+        }
+      },
       headers: {
         "Access-Control-Allow-Origin": "*",
       },

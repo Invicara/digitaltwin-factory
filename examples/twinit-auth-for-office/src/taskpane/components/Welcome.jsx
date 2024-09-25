@@ -1,10 +1,14 @@
-import * as React from "react"
-import { useState } from "react"
+import React, { useEffect, useState} from "react"
 import PropTypes from "prop-types"
-import { Button, Dropdown, Option, Image, tokens, makeStyles } from "@fluentui/react-components"
+import { Button, Dropdown, Option, Image, Link, Input, tokens, makeStyles } from "@fluentui/react-components"
 import { environments, applications } from '../TwinitConfig'
 
 const useStyles = makeStyles({
+  welcome_top: {
+    display: "flex",
+    flexDirection: "column",
+    height: "100vh"
+  },
   welcome__header: {
     display: "flex",
     flexDirection: "column",
@@ -24,16 +28,25 @@ const useStyles = makeStyles({
     alignItems: "center",
     paddingBottom: "30px",
     paddingTop: "30px",
+    flexGrow: "1"
   },
   envSelect: {
-    marginBottom: "10px"
+    marginBottom: "10px",
+    minWidth: "250px"
   },
   appSelect: {
-    marginBottom: "10px"
+    marginBottom: "10px",
+    minWidth: "250px"
+  },
+  appIdInput: {
+    marginBottom: "10px",
+    minWidth: "250px"
   },
   button: {
-   backgroundColor: "#C71784",
-   ':hover': {backgroundColor: "#9f1269"}
+    marginTop: "10px"
+  },
+  version: {
+    marginTop: "auto"
   }
 })
 
@@ -43,6 +56,29 @@ const Welcome = (props) => {
 
   const [ selectedEnv, setSelectedEnv ] = useState('')
   const [ selectedApp, setSelectedApp ] = useState('')
+  const [ selectedValue, setSelectedValue ] = useState('')
+  const [ showAppId, setShowAppId ] = useState(false)
+  const [ version, setVersion ] = useState('')
+  const [ error, setError ] = useState()
+
+
+  useEffect(() => {
+    fetch('manifest.xml')
+      .then((res) => res.text())
+      .then((xmlString) => new window.DOMParser().parseFromString(xmlString, "text/xml"))
+      .then((xmlDoc) => {
+        let officeAppNode = xmlDoc.getElementsByTagName("OfficeApp")[0]
+        let version = officeAppNode.getElementsByTagName("Version")[0].childNodes[0].nodeValue
+        setVersion(version)
+      })
+  })
+
+  useEffect(() => {
+
+    let appInfo = applications.find(app => app.id === selectedApp)
+    setSelectedValue(appInfo?.name || '')
+
+  }, [selectedApp])
 
   const handleEnvChange = (e, option) => {
     setSelectedEnv(option.optionValue)
@@ -54,8 +90,11 @@ const Welcome = (props) => {
 
   const sendToSignin = async () => {
 
+    let url = `https://${window.location.host}/signin.html?client_id=${selectedApp}&env=${selectedEnv}`
+
+    try {
     // open a dialog containing src/dialogs/signin.html passing the app id selected and the twinit env url selected by the user in the query params
-    Office.context.ui.displayDialogAsync(`https://localhost:3000/signin.html?client_id=${selectedApp}&env=${selectedEnv}`, { height: 60, width: 30 },
+    Office.context.ui.displayDialogAsync(url, { height: 60, width: 30 },
         (asyncResult) => {
             const dialog = asyncResult.value
 
@@ -67,11 +106,15 @@ const Welcome = (props) => {
               dialog.close()
             })
         }
-    )
+    )}
+    catch(err) {
+      console.log(err)
+      setError('Error: ' + err.toString())
+    }
  }
 
   return (
-    <div>
+    <div className={styles.welcome_top}>
       <section className={styles.welcome__header}>
         <Image width="90" height="90" src={logo} alt={title} />
         <h1 className={styles.message}>{message}</h1>
@@ -88,19 +131,28 @@ const Welcome = (props) => {
           {environments.map((env) => <Option key={env.name} value={env.url}>{env.name}</Option>)}
         </Dropdown>
 
-        <label id="application-drop">Twinit Application</label>
-        <Dropdown
+        <label id="application-select">Twinit Application {showAppId ? 'ID' : ''}</label>
+
+        {!showAppId && <Dropdown
           className={styles.appSelect}
-          aria-labelledby="application-drop"
+          aria-labelledby="application-select"
           placeholder="Select a Twinit Application"
           onOptionSelect={handleAppChange}
+          selectedOptions={[selectedApp]}
+          value={selectedValue}
         >
           {applications.map((app) => <Option key={app.name} value={app.id}>{app.name}</Option>)}
-        </Dropdown>
+        </Dropdown>}
+        {!showAppId && <div>Don't see your application? <Link href="#" onClick={() => setShowAppId(!showAppId)} inline>Click here</Link></div>}
 
+        {showAppId && <Input className={styles.appIdInput} type='text' onChange={(e, data) => setSelectedApp(data.value)} value={selectedApp} />}
+        {showAppId && <div>Click here to return to <Link href="#" onClick={() => setShowAppId(!showAppId)} inline>configured applications</Link></div>}
+        
         <Button appearance="primary" className={styles.button} size="large" onClick={sendToSignin} disabled={!selectedEnv || !selectedApp}>
           Signin
         </Button>
+        {error && <div>{error}</div>}
+        <div className={styles.version}>{version}</div>
       </div>
     </div>
   )
