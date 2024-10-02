@@ -457,7 +457,7 @@ class SimpleModelImportView extends React.Component {
                   </tr>
                 </thead>
                 <tbody>
-                  {selectedBimpkVersions.map(bv => <tr>
+                  {selectedBimpkVersions.map(bv => <tr key={bv._id}>
                     <td>
                       {isTipVersion(bv, bimpks, selectedBimpk) && !isImported(bv, allImportedModelVersions) && <input
                         type="checkbox"
@@ -469,7 +469,7 @@ class SimpleModelImportView extends React.Component {
                         }
                         disabled={this.state.isPageWorking}
                       />}
-                      {isImported(bv, allImportedModelVersions) && <i class="fas fa-check-circle"></i>}
+                      {isImported(bv, allImportedModelVersions) && <i className="fas fa-check-circle"></i>}
                       {!isTipVersion(bv, bimpks, selectedBimpk) && !isImported(bv, allImportedModelVersions) && <span>--</span>}
                     </td>
                     <td>{bv._version}</td>
