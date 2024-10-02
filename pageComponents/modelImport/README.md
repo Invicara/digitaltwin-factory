@@ -2,7 +2,7 @@
 
 The SimpleModelImportView provides an easy way to upload .bimpk or .sgpk files, and import their lates versions. You can easily implement the SimpleModelImportView by dropping it in your applications ```app/ipaCore/pageComponents``` folder and adding its configuration to your user configs.
 
-You are free to take the pageComponent and modify for your own purposes and, as with all dgitaltwin-factory content available under the [Apache 2.0 License](../../LICENSE).
+You are free to take the pageComponent and modify for your own purposes and, as with all digitaltwin-factory content, available under the [Apache 2.0 License](../../LICENSE).
 
 ## Requirements
 
@@ -62,3 +62,7 @@ Add the page to your groupedPages so it shows up in the app navigation. An examp
 2. Once a model has been selected the table below will populate the version of the bimpk or sgpk files in the File Service. If a file has not been imported and its the tip (latest) version, you can check the box for it and click the IMPORT button to import the bimpk file. If a file version has already been imported it will display a check. If a fle version was not imported while it was the tip (latest) version fo the file, then it will display with dashes; '--'. If an orchestrator can't be found for the selected modl file, the IMPORT button will disabled.
 
 3. If you have a bimpk or sgpk file, you can upload it directly by using the UPLOAD button. A sample bimpk is included in the ```sampleBimpk``` folder.
+
+## Want to Visualize Your Imported 3D/2D Model?
+
+Implement the [SimpleViewerView pageComponent](../simpleViewer/README.md)
