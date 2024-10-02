@@ -2,7 +2,7 @@
 
 The SimpleModelImportView provides an easy way to upload .bimpk or .sgpk files, and import their lates versions. You can easily implement the SimpleModelImportView by dropping it in your applications ```app/ipaCore/pageComponents``` folder and adding its configuration to your user configs.
 
-You are free to take the pageComponent and modify for your own purposes.
+You are free to take the pageComponent and modify for your own purposes and, as with all dgitaltwin-factory content available under the [Apache 2.0 License](../../LICENSE).
 
 ## Requirements
 
