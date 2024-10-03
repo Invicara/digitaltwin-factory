@@ -1,5 +1,7 @@
 # Twinit Model Reporting Add-In for Excel
 
+![Excel Addin](./docs/img/overview.jpg)
+
 Twinit Model Reporting Add-In contains an example Twinit add-in for signing in to Twinit, selecting an imported 3D/2D model, and extracting the model data into tables in Excel. The Add-In allows you to query imported 3D/2D model element and property data and create tables in Excel based on the results of your queries, all from within Excel.
 
 The Excel Twinit Model Reporting Add-In can be used wherever you use Excel; Windows, Mac, or even in the Browser.
