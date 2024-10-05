@@ -2,7 +2,7 @@
 
 ![SimpleViewerView image](./img/pageComponent.jpg)
 
-The SimpleViewerThemeView pageComponent provides an easy to understand example o get started  using Twinit's IafViewerDBM component for visualizing and interacting with 3D and 2D models. The pageComponent allows you to select from your imported models and view them in the IafViewerDBM. It also allows you to directly select elements in the 3D/2D view and add them to color groups to theme the model.
+The SimpleViewerThemeView pageComponent provides an easy to understand example to get started using Twinit's IafViewerDBM component for visualizing and interacting with 3D and 2D models. The pageComponent allows you to select from your imported models and view them in the IafViewerDBM. It also allows you to directly select elements in the 3D/2D view and add them to color groups to theme the model.
 
 You are free to take the pageComponent and modify for your own purposes.
 
