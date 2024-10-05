@@ -1,5 +1,7 @@
 # Simple Viewer View pageComponent
 
+![SimpleViewerView image](./img/pageComponent.jpg)
+
 The SimpleViewerView pageComponent provides an easy to understand implementation of the 3D/2D viewer component and a quick way to get started with using Twinit's IafViewerDBM for visualizing and interacting with 3D and 2D models. The pageComponent allows you to select from your imported models and view them in the IafViewerDBM. It also allows you to directly select an element in the 3D/2D view and see the properties of that element in the 3D/2D model.
 
 You are free to take the pageComponent and modify for your own purposes and, as with all digitaltwin-factory content, is available under the [Apache 2.0 License](../../LICENSE).
@@ -8,7 +10,10 @@ You are free to take the pageComponent and modify for your own purposes and, as 
 
 In order to use the SimpleViewerView, your ipa-core application must be using ipa-core 3.0 or newer and the @dtplatform 4.3 or newer libraries.
 
-If using the ```create-twinit-app``` npx command to scaffold a new client project for ipa-core, be sure to use the a ```create-twinit-app``` version of 3.0.6 or newer.
+If using the ```create-twinit-app``` npx command to scaffold a new client project for ipa-core, be sure to use the a ```create-twinit-app``` version of 3.0.6 or newer. You can check the version of create-twinit-app that created your current project by going into your project's package.json and finding the dev_twinit field.
+
+* If you do not have a dev_twinit field in your package.json then your project was created using a version prior to 3.0.7.
+* If you have a dev_twinit field, check the version number in the createdBy field. It will contain a version like: create-twinit-app@3.0.7.
 
 In order to view 3D/2D models you must also have created an import orchestrator, uploaded a bimpk or sgpk, and used the import orchestrator to import the bmpk or sgpk contents into Twinit. The 'Self-Led Developer Training Intermediate' course on Twinit Academy has a lesson titled 'Importing and Managing Models' which walks you through all three of those steps.
 
@@ -61,8 +66,6 @@ Add the page to your groupedPages so it shows up in the app navigation. An examp
 ```
 
 ## Using the SimpleViewerView
-
-![SimpleViewerView image](./img/pageComponent.jpg)
 
 1. Select an imported model in the 'Select a Model' dropdown.
 
