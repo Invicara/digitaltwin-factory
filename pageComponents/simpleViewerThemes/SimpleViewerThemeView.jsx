@@ -147,6 +147,7 @@ const SimpleViewerThemeView = (props) => {
             colorGroups={[colorGroups]}
             OnSelectedElementChangeCallback={addToSelection}
             selection={selection}
+            enableFocusMode={false}
          />}
       </div>
       <div className='viewer-sidebar'>
