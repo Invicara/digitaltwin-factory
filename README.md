@@ -11,3 +11,24 @@ This repository contains open-source code modules, examples, and utilities for u
 Each folder contains code that you can use or modify in your own projects, all available under the [Apache 2.0 License](./LICENSE).
 
 Be sure to read the readme for each module for instructions on how to use it.
+
+## Here is some of what you will find
+
+### Example Viewer pageComponents for use with ipa-core
+
+![SimpleViewer pageComponent](./pageComponents/simpleViewer/img/pageComponent.jpg)
+
+[Example pageComponent code](./pageComponents/simpleViewer/README.md) that clearly and simply shows how to use the Twinit IafViewer 3D/2D model viewer. Examples are available for selecting model elements in the viewer and connecting it to data in the item service, recording and setting camera views, and theming model elements.
+
+
+### Twinit Excel Model Reporting Add-In
+
+![Twinit Add-In Image](./utilities/ExcelModelReportingAddIn/docs/img/overview.jpg)
+
+[Ready to build and deploy code](./utilities/ExcelModelReportingAddIn/README.md) for a Excel Add-In code enabling you to create imported Twinit model reports directly in Excel.
+
+### Twninit Authentication Example from other clients
+
+![Twinit Signin from Office](./examples/twinit-auth-for-office/docs/img/Welcome.jpg)
+
+[Example code](./examples/twinit-auth-for-office/Readme.md) showing how to handle [Twinit's Oauth2 Authorization Code Grant](https://twinit.dev/docs/apis/rest/authentication/authcode-grant) from inside other applications like Office applications.
