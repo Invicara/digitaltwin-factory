@@ -1,0 +1,70 @@
+.simple-viewer-view {
+   display: flex;
+   flex-direction: row;
+   flex-wrap: nowrap;
+   height: calc(100vh - 80px);
+
+   .viewer {
+      position: relative;
+      align-items: stretch;
+      width: 80%;
+      height: 100%;
+   }
+
+   .viewer-sidebar {
+      width: 20%;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+
+      label {
+         font-weight: bold;
+
+         select {
+            all: revert;
+            height: 30px;
+            border-radius: 10px;
+            width: 100%;
+         }
+      }
+
+      .vis-btns {
+         overflow-y: auto;
+         display: flex;
+         flex-direction: column;
+         align-items: center;
+         
+         .clear-button {
+            margin-bottom: 10px;
+            width: 100%;
+         }
+      }
+
+      .element-info {
+         overflow-y: auto;
+
+         .element-info-table {
+            width: 100%;
+
+            td {
+               padding: 3px;
+               border-bottom: lightgray solid 1px;
+            }
+
+            .prop-name {
+               font-weight: bold;
+            }
+
+            .prop-type {
+               padding-top: 20px;
+               padding-bottom: 5px;
+               font-weight: bold;
+               text-align: center;
+               font-size: large;
+               color: var(--app-accent-color);
+            }
+         }
+      }
+      
+   }
+}
