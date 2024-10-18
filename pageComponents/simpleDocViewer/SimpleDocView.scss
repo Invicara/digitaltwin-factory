@@ -1,0 +1,30 @@
+
+.simple-doc-view {
+   width: 100%;
+
+   display: flex;
+   flex-direction: row;
+
+   .viewer {
+      width: 80%;
+
+      #header-bar {
+         position: relative;
+      }
+   }
+   
+   .viewer-sidebar {
+      width: 20%;
+   
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      height: calc(100vh - 80px);
+
+      padding: 10px;
+
+      border-left: lightgray solid 2px;
+
+   }
+}
+
