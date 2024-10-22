@@ -15,6 +15,8 @@ If using the ```create-twinit-app``` npx command to scaffold a new client projec
 * If you do not have a dev_twinit field in your package.json then your project was created using a version prior to 3.0.7.
 * If you have a dev_twinit field, check the version number in the createdBy field. It will contain a version like: create-twinit-app@3.0.7.
 
+You must also have created your model import script and orchestrator. For instructions on how to do so, see the __Importing and Managing Models__ chapter in the __Twinit Self-Led Developer Training Intermediate course__.
+
 ## Adding SimpleModelImportView to Your Application
 
 To add the pageComponent to your application:
