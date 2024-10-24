@@ -1,0 +1,21 @@
+.element-info-table {
+   width: 100%;
+
+   td {
+      padding: 3px;
+      border-bottom: lightgray solid 1px;
+   }
+
+   .prop-name {
+      font-weight: bold;
+   }
+
+   .prop-type {
+      padding-top: 20px;
+      padding-bottom: 5px;
+      font-weight: bold;
+      text-align: center;
+      font-size: large;
+      color: var(--app-accent-color);
+   }
+}

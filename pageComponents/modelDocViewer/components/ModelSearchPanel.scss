@@ -1,0 +1,6 @@
+.model-search-panel {
+   display: flex;
+   flex-direction: column;
+   overflow-y: auto;
+   min-height: calc(100vh - 300px);
+}

@@ -1,0 +1,54 @@
+.simple-viewer-view {
+   display: flex;
+   flex-direction: row;
+   flex-wrap: nowrap;
+   height: calc(100vh - 80px);
+
+   .viewer {
+      position: relative;
+      align-items: stretch;
+      width: 80%;
+      height: 100%;
+   }
+
+   .viewer-sidebar {
+      width: 20%;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+
+      label {
+         font-weight: bold;
+
+         select {
+            all: revert;
+            height: 30px;
+            border-radius: 10px;
+            width: 100%;
+         }
+      }
+
+      .element-info {
+         
+
+         .view-mode-select {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-evenly;
+            margin-bottom: 20px;
+
+            .mode-selector-enabled {
+               color: var(--app-accent-color);
+               text-decoration: underline;
+               font-weight:  bold;
+            }
+
+            .mode-selector-disabled {
+               color: var(--app-accent-color);
+            }
+         }
+         
+      }
+      
+   }
+}
