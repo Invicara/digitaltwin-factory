@@ -64,9 +64,9 @@ Add the page to your groupedPages so it shows up in the app navigation. An examp
 
 1. Select your model. The Select Model dropdown allows you to select the bimpk and sgpk files that have been uploaded to the rootContainer of the project in the File Service.
 
-2. Once a model has been selected the table below will populate the version of the bimpk or sgpk files in the File Service. If a file has not been imported and its the tip (latest) version, you can check the box for it and click the IMPORT button to import the bimpk file. If a file version has already been imported it will display a check. If a fle version was not imported while it was the tip (latest) version fo the file, then it will display with dashes; '--'. If an orchestrator can't be found for the selected modl file, the IMPORT button will disabled.
+2. Once a model has been selected the table below will populate the version of the bimpk or sgpk files in the File Service. If a file has not been imported and its the tip (latest) version, you can check the box for it and click the IMPORT button to import the bimpk file. If a file version has already been imported it will display a check. If a file version was not imported while it was the tip (latest) version of the file, then it will display with dashes; '--'. If an orchestrator can't be found for the selected model file, the IMPORT button will disabled.
 
-3. If you have a bimpk or sgpk file, you can upload it directly by using the UPLOAD button. A sample bimpk is included in the ```sampleBimpk``` folder.
+3. If you have a bimpk or sgpk file, you can upload it directly by using the UPLOAD button. A sample bimpk is included in the [sampleFiles](../../sampleFiles/) folder.
 
 ## Want to Visualize Your Imported 3D/2D Model?
 
