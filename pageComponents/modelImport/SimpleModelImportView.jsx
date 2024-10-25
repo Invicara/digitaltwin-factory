@@ -74,9 +74,11 @@ class SimpleModelImportView extends React.Component {
     //if no model or if it cant be found use first file
     let defaultSelection = bimpkOptions[0];
 
-    //get the version of the model for display
-    const bversions = getSelectedBimpkVersions(this.state.bimpks, defaultSelection.value);
-
+    const bversions = []
+    if (defaultSelection !== undefined && defaultSelection?.value !== 'none') {
+      //get the version of the model for display
+      bversions = getSelectedBimpkVersions(this.state.bimpks, defaultSelection.value);
+    }
     
 
     this.setState(
@@ -128,12 +130,15 @@ class SimpleModelImportView extends React.Component {
     let importedModels = await IafProj.getModels(project);
 
     let importedModelVersions = []
-    for (const imported of importedModels) {
-      let importedVersions = await IafItemSvc.getNamedUserItemVersions(imported._userItemId)
+    let importedVersions =[]
+    if (importedModels) {
+      for (const imported of importedModels) {
+        importedVersions = await IafItemSvc.getNamedUserItemVersions(imported._userItemId)
 
-      importedVersions._list.forEach((iv) => {
-        importedModelVersions.push(iv._userAttributes.bimpk)
-      })
+        importedVersions._list.forEach((iv) => {
+          importedModelVersions.push(iv._userAttributes.bimpk)
+        })
+      }
     }
 
     //update the UI while we load the script after
