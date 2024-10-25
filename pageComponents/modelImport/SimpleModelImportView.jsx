@@ -74,7 +74,7 @@ class SimpleModelImportView extends React.Component {
     //if no model or if it cant be found use first file
     let defaultSelection = bimpkOptions[0];
 
-    const bversions = []
+    let bversions = []
     if (defaultSelection !== undefined && defaultSelection?.value !== 'none') {
       //get the version of the model for display
       bversions = getSelectedBimpkVersions(this.state.bimpks, defaultSelection.value);
