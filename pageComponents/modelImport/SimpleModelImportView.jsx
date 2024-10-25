@@ -447,7 +447,7 @@ class SimpleModelImportView extends React.Component {
               className="basic-single"
               classNamePrefix="select"
               onChange={this.onModelChange}
-              isDisabled={isPageLoading || isPageWorking}
+              isDisabled={isPageLoading || isPageWorking || !bimpkOptions.length}
             />
 
             <div style={{ width: '60%', margin: 'auto' }}>
