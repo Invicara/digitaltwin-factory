@@ -1,4 +1,5 @@
 # Simple Doc View pageComponent
+version dtf-1.0
 
 ![SimpleDocView image](./img/pageComponent.jpg)
 

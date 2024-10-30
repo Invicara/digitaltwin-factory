@@ -1,4 +1,5 @@
 # Model Doc View pageComponent
+version dtf-1.0
 
 ![ModelDocView image](./img/pageComponent.jpg)
 

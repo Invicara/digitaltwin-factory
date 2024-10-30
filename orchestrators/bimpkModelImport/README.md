@@ -1,4 +1,5 @@
 # bimpk Model Import Orchestrator Setup
+version dtf-1.0
 
 The bimpk Model Import Orchestrator Setup can be used to enable bimpk model import in Twinit workspaces and projects.
 

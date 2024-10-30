@@ -1,4 +1,5 @@
 # Simple Viewer Visibility View pageComponent
+version dtf-1.0
 
 ![SimpleViewerVisibilityView image](./img/pageComponent.jpg)
 

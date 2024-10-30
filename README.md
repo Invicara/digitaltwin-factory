@@ -32,3 +32,7 @@ Be sure to read the readme for each module for instructions on how to use it.
 ![Twinit Signin from Office](./examples/twinit-auth-for-office/docs/img/Welcome.jpg)
 
 [Example code](./examples/twinit-auth-for-office/Readme.md) showing how to handle [Twinit's Oauth2 Authorization Code Grant](https://twinit.dev/docs/apis/rest/authentication/authcode-grant) from inside other applications like Office applications.
+
+# digitaltwin-factory versioning
+
+All code provided through this repo is versioned to enable you to know if a component, pageComponent, example, utility, or other has been updated. If the code utilizes a package.json the version number in the package.json file will be updated. Otherwise, a version will appear in the top comment of the main code file and at the top of the README file.

@@ -1,4 +1,5 @@
 # Simple Viewer Saved View pageComponent
+version dtf-1.0
 
 ![SimpleViewerView image](./img/pageComponent.jpg)
 

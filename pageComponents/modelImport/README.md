@@ -1,4 +1,5 @@
 # SimpleModelImportView pageComponent
+version dtf-1.0
 
 ![SimpleModelImportView image](./img/pageComponent.jpg)
 

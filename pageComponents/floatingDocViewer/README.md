@@ -1,4 +1,5 @@
 # Floating Doc View pageComponent
+version dtf-1.0
 
 ![FloatingDocView image](./img/pageComponent.jpg)
 

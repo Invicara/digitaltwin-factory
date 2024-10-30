@@ -1,4 +1,5 @@
 # FloatingDocViewer ipa-core React Component
+version dtf-1.0
 
 ![FloatingDocViewer image](./img/component.jpg)
 

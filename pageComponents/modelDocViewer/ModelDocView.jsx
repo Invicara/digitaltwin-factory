@@ -1,3 +1,5 @@
+// version dtf-1.0
+
 import React, { useState, useEffect, useRef, createContext } from 'react'
 
 import { IafViewerDBM } from '@dtplatform/iaf-viewer'

@@ -1,3 +1,5 @@
+// version dtf-1.0
+
 class InputValidation {
 	constructor(params, libraries, ctx) {
 			this.params = params
