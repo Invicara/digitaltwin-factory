@@ -1,0 +1,18 @@
+.import-status-list {
+
+   list-style-type: none;
+
+   .import-status-list-item {
+
+      border-top: solid lightgray 2px;
+      padding: 20px 0px 20px 0px;
+      font-size: large;
+
+   }
+
+   .import-status-list-item:last-child {
+
+      border-bottom: solid lightgray 2px;
+   }
+
+}

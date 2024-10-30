@@ -1,5 +1,5 @@
 # SimpleModelImportView pageComponent
-version dtf-1.0
+version dtf-1.1
 
 ![SimpleModelImportView image](./img/pageComponent.jpg)
 
@@ -72,3 +72,14 @@ Add the page to your groupedPages so it shows up in the app navigation. An examp
 ## Want to Visualize Your Imported 3D/2D Model?
 
 Implement the [SimpleViewerView pageComponent](../simpleViewer/README.md)
+
+## Update Log
+
+### version dtf-1.1
+
+* Removed usage of the Mobiscroll library and replaced with a simple list
+* Removed unused helper functions
+
+### version dtf-1.0
+
+* First dtf release of the pageComponent

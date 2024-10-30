@@ -1,4 +1,4 @@
-// version dtf-1.0
+// version dtf-1.1
 
 import React from 'react';
 import Select from 'react-select';
@@ -6,8 +6,9 @@ import _ from 'lodash';
 
 import { IafProj, IafFileSvc, IafDataSource, IafItemSvc } from '@dtplatform/platform-api';
 import { IafScriptEngine } from '@dtplatform/iaf-script-engine';
-import { mobiscroll } from '@dtplatform/invicara-lib';
 import { GenericMatButton } from '@invicara/ipa-core/modules/IpaControls';
+
+import ImportStatusList from './components/ImportStatusList';
 
 import '@dtplatform/invicara-lib/dist/invicara-lib.css';
 import './SimpleModelImportView.scss'
@@ -308,10 +309,6 @@ class SimpleModelImportView extends React.Component {
     const orchRunStatus = await IafDataSource.getOrchRunStatus(runid);
 
     const orchStepRunStatus = orchRunStatus[0].orchrunsteps;
-    orchStepRunStatus.forEach((step) => {
-      step.id = step.id; //need an id for mobiScroll.listView
-    });
-    //orchStepRunStatus.reverse(); //show latest status at top
 
     await this.setState({ orchRunStatus: orchRunStatus, orchStepRunStatus: orchStepRunStatus });
   };
@@ -518,7 +515,7 @@ class SimpleModelImportView extends React.Component {
                     )}
                     {!!orchRunStatus && !isPageWorking && <h3>Import Complete</h3>}
 
-                    <mobiscroll.Listview theme="ios" itemType={StatusListItem} data={orchStepRunStatus} />
+                    <ImportStatusList data={orchStepRunStatus} />
                   </div>
                 </div>
               )}
@@ -531,20 +528,6 @@ class SimpleModelImportView extends React.Component {
 }
 
 export default SimpleModelImportView;
-
-class StatusListItem extends React.Component {
-  render() {
-    const item = this.props.item;
-    return (
-      <li key={item.id}>
-        {item._name
-          ? item._status + ': ' + item._name
-          : (item.step_run_message === '{}' ? item.step_run_status + ' ' : '') +
-            (item.step_run_message !== '{}' ? item.step_run_message : item.step_run_name)}
-      </li>
-    );
-  }
-}
 
 class MessageThrobber extends React.Component {
   constructor(props) {

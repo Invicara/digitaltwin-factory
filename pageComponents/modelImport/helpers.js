@@ -97,19 +97,8 @@ export const getCurrentFileNameFromSelect = (selectedFile) => {
   }
 
   return fileObject;
-};
+}
 
-export const getMissingRelationsResponse = async (fileId, fileVersionId) => {
-  let missingElementsFile = await IafFileSvc.getFileUrl(fileId, fileVersionId);
-
-  let resp = await fetch(missingElementsFile._url);
-
-  return resp.json();
-};
-
-export const mapMissingRelations = async (missingRelations) => {
-  return Promise.all(missingRelations.map((item) => getMissingRelationsResponse(item.fileId, item.fileVersionId)));
-};
 
 export const getFileNameAndExtension = (file) => {
   const fileNameAndExtension = file.name.split('.');
