@@ -32,7 +32,7 @@ If you used a version of create-twinit-app of 3.0.6 or newer you can skip this s
 ### Adding the Redux Slices
 
 1. Copy the ```redux/documentsSlice.js``` and the ```redux/modelSlice.js``` files from this folder
-2. Paste both files in to your ```app/apiCore/redux``` folder
+2. Paste both files in to your ```app/ipaCore/redux``` folder
 3. Open ```app/ipaCore/ipaCore.js``` and add the following to your redux configuration
 ```js
 redux: {
