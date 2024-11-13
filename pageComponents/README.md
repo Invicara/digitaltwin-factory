@@ -27,9 +27,10 @@ These pageComponents all spotlight implementing the [Twinit IafViewerDBM compone
 * [simpleViewerThemes](./simpleViewerThemes/README.md) : A simple implementation of the iafViewerDBM illustrating how to theme elements in the viewer with different colors.
 * [simpleViewerVisibility](./simpleViewerVisibility/README.md) : A simple implementation of the iafViewerDBM illustrating how to slice elements in the model to isolate them n context against the rest of the model elements, as well as how to completely hide elements from the view.
 
-### Combination pageComponents
+### Complex pageComponents
 
 These pageComponents combine multiple of the examples above to achieve a given use case, capability, or workflow. They may require more configuration or setup than the simple pageComponents.
 
 * [modelDocViewer](./modelDocViewer/README.md) : This pageComponent combines the capabilities found in simplerViewer, simpleViewerVisibility, and floatingDocViewer to compose a pageComponent that supports searching and interrogating model elements, uploading and relating files to model elements, and viewing files.
 
+* [modelDocViewerRedux](./modelDocViewerRedux/README.md) : This pageComponent buildings on the ModelDocViewer, introducing Redux state management by elevating all data previously managed by React Context to a Redux Slice.

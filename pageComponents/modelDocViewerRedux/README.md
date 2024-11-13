@@ -1,9 +1,8 @@
-# Model Doc View pageComponent
-version dtf-1.0
+# Model Doc View Redux pageComponent
 
-![ModelDocView image](./img/pageComponent.jpg)
+![ModelDocReduxView image](./img/pageComponent.jpg)
 
-The ModelDocView pageComponent provides an easy to understand implementation of the 3D/2D viewer component and a quick way to implement an application that allows for searching a model, interrogating the properties of elements in a model, and associating and viewing documents related to the model elements.
+The ModelDocViewRedux pageComponent builds on the ModelDocView pageComponent to show how a complex pageComponent can use ipa-core's ability to load custom redux slices and manage and use state at an application level. All state managed via React Context in ModelDocView has been elevated to Redux in ModelDocViewRedux. Some other code reorganization also has been done to take advantage of state in redux; such as moving the FloatingDocViewer out of the FilePanel and to the pageComponent itself, allowing the Search or Properties tab to be chosen and the doc viewer to remain open at the same time.
 
 This page is written for use with Revit models, but can be easily modified for other CAD authoring applications.
 
@@ -30,25 +29,39 @@ Plugins for supported CAD applications that can be used to upload bimpks of your
 
 If you used a version of create-twinit-app of 3.0.6 or newer you can skip this step. Otherwise, follow the directions [here](https://twinit.dev/docs/apis/viewer/IafViewerDBM) for updating your webpack configuration and adding the viewer script tag.
 
+### Adding the Redux Slices
+
+1. Copy the ```redux/documentsSlice.js``` and the ```redux/modelSlice.js``` files from this folder
+2. Paste both files in to your ```app/apiCore/redux``` folder
+3. Open ```app/ipaCore/ipaCore.js``` and add the following to your redux configuration
+```js
+redux: {
+   slices: [
+      { name: 'documentsSlice', file: 'documentsSlice.js' },
+      { name: 'modelSlice', file: 'modelSlice.js' }
+   ]
+},
+```
+
 ### Adding the pageComponent
 
 To add the pageComponent to your application:
 
-1. Copy the ```modelDocViewer``` folder and its contents from this folder
+1. Copy the ```pageComponents/modelDocViewerRedux``` folder and its contents from this folder
 2. Paste the folder in to your ```app/ipaCore/pageComponents``` folder
 
-### Configuring the ModelDocView
+### Configuring the ModelDocViewRedux
 
 Add the following to your handlers:
 
 ```json
-"modelDocView": {
-   "title": "Model Doc View",
+"modelDocViewRedux": {
+   "title": "Redux Enabled Model Doc View",
    "icon": "fas fa-building fa-2x",
-   "shortName": "modeldocview",
-   "description": "Model Doc View",
-   "pageComponent": "modelDocViewer/ModelDocView",
-   "path": "/modeldocview",
+   "shortName": "modeldocviewredux",
+   "description": "Redux Enabled Model Doc View",
+   "pageComponent": "modelDocViewerRedux/ModelDocViewRedux",
+   "path": "/modeldocviewredux",
    "config": {}
 }
 ```
@@ -61,8 +74,8 @@ Add the page to your groupedPages so it shows up in the app navigation. An examp
    "position": 1,
    "pages": [
       {
-         "page": "Model Doc View",
-         "handler": "modelDocView"
+         "page": "Redux Enabled Model Doc View",
+         "handler": "modelDocViewRedux"
       }
    ]
 }
