@@ -1,13 +1,4 @@
-import * as fs from 'fs'
-
-let runnableScripts = [
-    { name: "Bulk Upload Files", script: "bulkUploadFileWithAttributes" }
-]
-
-let Validation = {
-    getRunnableScripts() {
-        return runnableScripts
-    },
+let bulkUpload =  {
     async bulkUploadFileWithAttributes(input, libraries, ctx) {
         let { PlatformApi, IafScriptEngine, UiUtils } = libraries
         const proj = await PlatformApi.IafProj.getCurrent(ctx);
@@ -44,12 +35,13 @@ let Validation = {
         const fileUploadPromises = [];
 
         if (selectFiles.length > 100) {
+            console.log('in side more then 100 files :----')
 
             const chunkSize = 50;
-            
+
 
             for (let i = 0; i < selectFiles.length; i += chunkSize) {
-               
+
                 const chunkPromises = [];
 
                 for (let j = i; j < Math.min(i + chunkSize, selectFiles.length); j++) {
@@ -61,26 +53,23 @@ let Validation = {
                         console.log('file not present in sheet:->', fileItem.name);
                     } else {
                         console.log('file present in sheet:->', fileItem.name);
-                        const path = fileItem.uri._fsPath;
-                        const fileReadStream = fs.createReadStream(path);
-                        fileReadStream.fileItem = {
+
+                        fileItem.fileObj.fileItem = {
                             fileAttributes: selectedSheetData[fileItem.name]
                         };
-
-                        const uploadPromise = new Promise((resolve, reject) => {
-                            
-                                PlatformApi.IafFile.uploadFileResumable(containerObj, fileReadStream, {
-                                    filename: fileItem.name,
-                                    onComplete: (fileItem) => {
-                                        resolve({ "status": "success", "fileName": fileItem.name });
-                                    },
-                                    onError: (error) => {
-                                        reject({ "status": "rejected", "error": error, "fileName": fileItem.name });
-                                    },
     
-                                }, ctx).catch((error)=>{
+                        const uploadPromise = new Promise((resolve, reject) => {
+                            PlatformApi.IafFile.uploadFileResumable(containerObj, fileItem.fileObj, {
+                                filename: fileItem.name,
+                                onComplete: (fileItem) => {
+                                    resolve({ "status": "sucess", "fileName": fileItem.name })
+                                },
+                                onError: (error) => {
                                     reject({ "status": "rejected", "error": error, "fileName": fileItem.name })
-                                })
+                                }
+                            }, ctx).catch((error) => {
+                                reject({ "status": "rejected", "error": error, "fileName": fileItem.name })
+                            });
                         });
 
                         chunkPromises.push(uploadPromise);
@@ -94,7 +83,7 @@ let Validation = {
                             sucessUploadFiles.push({ "Success File Name": result.fileName });
                             allSucessFiles.push(result.fileName)
                         } else if (settledPromise.status === 'rejected') {
-                            const reason = settledPromise.reason; 
+                            const reason = settledPromise.reason;
                             failerUploadFiles.push({ "Failed File Name": reason.fileName });
                         }
                     });
@@ -102,6 +91,7 @@ let Validation = {
             }
 
         } else {
+            console.log('in side lest then 100 files :----')
             for (const fileItem of selectFiles) {
                 selectFilesName.push(fileItem.name)
                 if (!selectedSheetData.hasOwnProperty(fileItem.name)) {
@@ -110,13 +100,12 @@ let Validation = {
                 } else {
                     console.log('file present in sheet:->', fileItem.name);
                     const path = fileItem.uri._fsPath;
-                    const fileReadStream = fs.createReadStream(path);
-                    fileReadStream.fileItem = {
+                    fileItem.fileObj.fileItem = {
                         fileAttributes: selectedSheetData[fileItem.name]
                     };
-                   
+
                     const uploadPromise = new Promise((resolve, reject) => {
-                        PlatformApi.IafFile.uploadFileResumable(containerObj, fileReadStream, {
+                        PlatformApi.IafFile.uploadFileResumable(containerObj, fileItem.fileObj, {
                             filename: fileItem.name,
                             onComplete: (fileItem) => {
                                 resolve({ "status": "sucess", "fileName": fileItem.name })
@@ -124,7 +113,7 @@ let Validation = {
                             onError: (error) => {
                                 reject({ "status": "rejected", "error": error, "fileName": fileItem.name })
                             }
-                        }, ctx).catch((error)=>{
+                        }, ctx).catch((error) => {
                             reject({ "status": "rejected", "error": error, "fileName": fileItem.name })
                         });
                     });
@@ -137,11 +126,13 @@ let Validation = {
             await Promise.allSettled(fileUploadPromises).then((finalData) => {
                 finalData.forEach((settledPromise) => {
                     if (settledPromise.status === 'fulfilled') {
-                        const result = settledPromise.value; 
+                        const result = settledPromise.value;
+                        console.log('Sucess file upload :---->', result)
                         sucessUploadFiles.push({ "Success File Name": result.fileName });
                         allSucessFiles.push(result.fileName)
                     } else if (settledPromise.status === 'rejected') {
-                        const reason = settledPromise.reason; 
+                        const reason = settledPromise.reason;
+                        console.log('failed file upload :---->', reason)
                         failerUploadFiles.push({ "Failed File Name": reason.fileName });
                     }
                 });
@@ -150,8 +141,8 @@ let Validation = {
         }
 
         let missingUpload = [];
-        for(const keys in selectedSheetData){
-            if(!selectFilesName.includes(keys)){
+        for (const keys in selectedSheetData) {
+            if (!selectFilesName.includes(keys)) {
                 missingUpload.push({ "Missing in folder File Name": keys })
             }
         }
@@ -162,19 +153,19 @@ let Validation = {
             let fileItems = await IafScriptEngine.getFileItems(
                 {
                     collectionDesc: { _userType: iaf_ext_files_coll._userType, _userItemId: iaf_ext_files_coll._userItemId },
-                    query: { "name":  item['Failed File Name'] },
+                    query: { "name": item['Failed File Name'] },
                     options: { page: { getAllItems: true } }
                 }, ctx);
-            
+
             if (fileItems.length == 0) {
                 finalFailedFiles.push(item);
             }
-            else{
+            else {
                 if (!allSucessFiles.includes(item['Failed File Name'])) {
                     console.log('file not include in sucess...')
                     sucessUploadFiles.push({ "Success File Name": item['Failed File Name'] })
                 }
-                else{
+                else {
                     console.log('file pressenttttt in sucessss......')
                 }
             }
@@ -183,11 +174,11 @@ let Validation = {
         if (missingFiles.length > 0) {
             missingFiles[0].Count = missingFiles.length;
         }
-        
+
         if (sucessUploadFiles.length > 0) {
             sucessUploadFiles[0].Count = sucessUploadFiles.length;
         }
-        
+
         if (finalFailedFiles.length > 0) {
             finalFailedFiles[0].Count = finalFailedFiles.length;
         }
@@ -203,11 +194,9 @@ let Validation = {
             { sheetName: "Failed_To_Upload", objects: finalFailedFiles },
             { sheetName: "Missing_File_In_Folder", objects: missingUpload }
         ];
-       
+
         let relationWorkbook = await UiUtils.IafDataPlugin.createWorkbookFromAoO(finalSheetArray);
         await UiUtils.IafDataPlugin.saveWorkbook(relationWorkbook, "Bulk_Upload_File_Status.xlsx");
         return
     }
 }
-  
-  export default Validation
