@@ -1,4 +1,4 @@
-// version dtf-1.0
+// version dtf-1.1
 
 class InputValidation {
 	constructor(params, libraries, ctx) {
@@ -264,10 +264,9 @@ async #createBIMCollectionVersion() {
 					}   
 				}
 			}
-			const [modelRelatedCollection] = await Promise.all([
-				IafScriptEngine.getCollectionsInComposite(bimModel._id, null, this.ctx),
-				IafScriptEngine.createNamedUserItemVersion(newModelVer, this.ctx)
-			])
+
+			const modelRelatedCollection = await IafScriptEngine.getCollectionsInComposite(bimModel._id, null, this.ctx)
+			await IafScriptEngine.createNamedUserItemVersion(newModelVer, this.ctx)
 
 			console.log(`modelRelatedCollection, orch_run_id: ${this.params.orchRunId}`, modelRelatedCollection)
 			console.log(`Created BIM Collection Version bim_model version, orch_run_id: ${this.params.orchRunId}`);
