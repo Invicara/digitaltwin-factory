@@ -1,5 +1,5 @@
 # SimpleModelImportView pageComponent
-version dtf-1.1
+version dtf-1.2
 
 ![SimpleModelImportView image](./img/pageComponent.jpg)
 
@@ -74,6 +74,11 @@ Add the page to your groupedPages so it shows up in the app navigation. An examp
 Implement the [SimpleViewerView pageComponent](../simpleViewer/README.md)
 
 ## Update Log
+
+### version dtf-1.2
+
+* Moved Upload button
+* Added additional information about downloading plugins and sample files
 
 ### version dtf-1.1
 

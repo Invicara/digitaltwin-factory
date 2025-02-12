@@ -2,3 +2,17 @@
    margin-top: 10px;
    margin-bottom: 30px;
 }
+
+.download-notice {
+   display: flex;
+   flex-direction: column;
+   margin: 30px;
+   padding: 10px;
+   border: 1px solid lightgray;
+   border-radius: 10px;
+   background-color: #ECFFDC;
+
+   div {
+      margin-bottom: 5px;
+   }
+}
