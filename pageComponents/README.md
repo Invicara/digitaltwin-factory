@@ -22,10 +22,11 @@ All of the pageComponents are free to be used in your own applications. You can 
 These pageComponents all spotlight implementing the [Twinit IafViewerDBM component](https://twinit.dev/docs/apis/viewer/overview). Each pageComponent illustrates implementing a specific feature of the viewer.
 
 * [simpleViewer](./simpleViewer/README.md) : A simple iafViewerDBM implementation of the  to view 3D/2D models. It also includes the logic to handle user selections in the model geometry to find and display the model properties for he selected geometry.
-* [simpleViewerSavedViews](./simpleViewerSavedViews/README.md) : A simple implementation of the iafViewerDBM illustrating how to interact with the viewer's camera to save and set views.
-* [simpleViewerSpaces](./simpleViewerSpaces/) : A simple implementation of the iafViewerDBM illustrating how to display and interact with spaces in the viewer.
-* [simpleViewerThemes](./simpleViewerThemes/README.md) : A simple implementation of the iafViewerDBM illustrating how to theme elements in the viewer with different colors.
-* [simpleViewerVisibility](./simpleViewerVisibility/README.md) : A simple implementation of the iafViewerDBM illustrating how to slice elements in the model to isolate them n context against the rest of the model elements, as well as how to completely hide elements from the view.
+* [simpleViewerSavedViews](./simpleViewerSavedViews/README.md) : A simple implementation of the iafViewerDBM demonstrating how to interact with the viewer's camera to save and set views.
+* [simpleViewerSpaces](./simpleViewerSpaces/) : A simple implementation of the iafViewerDBM demonstrating how to display and interact with spaces in the viewer.
+* [simpleViewerThemes](./simpleViewerThemes/README.md) : A simple implementation of the iafViewerDBM demonstrating how to theme elements in the viewer with different colors.
+* [simpleViewerVisibility](./simpleViewerVisibility/README.md) : A simple implementation of the iafViewerDBM demonstrating how to slice elements in the model to isolate them n context against the rest of the model elements, as well as how to completely hide elements from the view.
+* [simpleViewerSpacesMarkup](./simpleViewerSpacesMarkup/README.md) : A simple implementation of the IafViewer demonstrating how to programmatically draw markup in the 3D view. The example case is drawing a temperature markup at the geometric center of building spaces.
 
 ### Complex pageComponents
 
