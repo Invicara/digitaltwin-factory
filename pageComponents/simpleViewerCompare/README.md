@@ -1,10 +1,13 @@
 # SimpleViewerCompareView
+version dtf-1.0
+
+![SimpleViewerCompareView image](./img/simpleViewerCompareView.png)
 
 The SimpleViewerCompareView pageComponent provides an elegant and intuitive solution for comparing two 3D models side-by-side using Twinit's IafViewerDBM. This component enables you to select two imported models (and their specific versions) and view them simultaneously in either parallel or overlay mode. With synchronized camera controls, you can easily compare models with a seamless viewing experience.
 
 The component features a clean, modern interface with a collapsible sidebar for model selection and settings, making it easy to switch between viewing modes and manage your comparison workflow.
 
-You are free to take this pageComponent and modify it for your own purposes. As with all digitaltwin-factory content, it is available under the Apache 2.0 License.
+You are free to take this pageComponent and modify it for your own purposes. As with all digitaltwin-factory content, it is available under the [Apache 2.0 License](../../LICENSE).
 
 ## Requirements
 

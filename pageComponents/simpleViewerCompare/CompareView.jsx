@@ -1,3 +1,5 @@
+// version dtf-1.0
+
 import React, { useState, useRef, useEffect } from 'react';
 
 const CompareView = ({
